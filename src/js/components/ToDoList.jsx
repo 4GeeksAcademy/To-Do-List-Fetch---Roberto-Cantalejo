@@ -2,17 +2,20 @@ import React, {useState} from 'react'
 
 const ToDoList = () => {
 
-  // Creo un useState para la lista y otro para ir metiendo cosas
+  // Creo un useState para la lista y otro para ir metiendo tareas
   
   const [list, setList] = useState([])
   const [thing, setThing] = useState("")
 
+  // Se crea la función que introduce la tarea en caso de que esta tenga información que no sean espacios en blanco únicamente
   const addToList = (eventInfo) => {
     if (eventInfo.key === 'Enter' && thing.trim() !== '') {
       setList([...list, thing]);
       setThing('')
     }
   }
+
+  // Se crea la función que crea un nuevo array donde el índice que coincide se elimina, para que el botón elimine el índice en el que se encuentra
 
   const deleteThing = (index) => {
     const newList = list.filter((_, i) => i !== index); 
