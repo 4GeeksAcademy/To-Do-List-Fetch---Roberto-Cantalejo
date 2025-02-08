@@ -1,15 +1,75 @@
-/* 
+* {
+    box-shadow: none !important;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+body {
+    background-color:#283747;
+}
 
 .input-group {
     width: 40vw;
+}
+
+.input-group-text {
+    background-color:#fcf3cf;
+    border-radius: 5px 0px 0px 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+.form-control {
+    background-color:#fcf3cf;
+    border-radius: 0px 5px 5px 0px;
+    border-style: solid;
+  border-color: black;
+}
+
+.list-container {
+    width: 30vw;
+}
+
+.list-header {
+    background-color: #f8f9fa;
+    border-top-right-radius: 20px !important;
+}
+
+#list-reminder {
+    font-family: 'Kissing Season';
+    margin-top: 0.5em;
+    font-size: 1.5em;
+}
+.list-footer {
+    background-color: #f8f9fa;
+    font-size: 6px;
+}
+
+.list-group-item {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-line;
+    display: flex;
+    padding-left: 2.5em;
+    overflow: scroll;
+    max-height: 5em;
+    font-family: 'Trebuchet MS';
+    font-size: 0.7em;
+} 
+
+.list-header, .list-footer, .list-group {
+    width: 100%;
+}
+
+.btn-close {
+    margin-left: auto;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.list-group-item:hover > .btn-close {
+    opacity: 1;
+}
+@font-face {
+    font-family: "Kissing Season";
+    src: url("/workspaces/To-Do-List---Roberto-Cantalejo/src/fonts/Kissing Season.ttf") format("truetype");
 }
