@@ -7,6 +7,7 @@ const ToDoList = () => {
   const [list, setList] = useState([])
   const [task, setTask] = useState("")
   const [user, setUser] = useState("")
+  const [logged, setLogged] = useState()
   
   // Hago una función para recoger el nombre del user y crearlo en la API
 
@@ -36,8 +37,10 @@ const ToDoList = () => {
   useEffect(() => {
     if (user) {
     getList(); // Aquí estoy llamando a la lista desde la API cuando cambia el user.
+    setLogged(true); // Indica que se está loggeado.
     } else {
-      setList([])
+      setList([]);
+      setLogged(false);
     }
   }, [user])
   
@@ -78,18 +81,19 @@ return (
   <div className="input-group-prepend">
     <span className="input-group-text" id="">Insert user name</span>
   </div>
-  <input type="text" className="form-control" onKeyDown={getUser} placeholder='Insert user name and press Enter'/>
+  <input type="text" className="form-control" onKeyDown={getUser} placeholder= {logged ? "Enter another user name if you want to change" : "Enter the user name"}/>
 </div>
     <div className="input-group">
       <div className="input-group-prepend">
         <span className="input-group-text">Add something to do</span>
       </div>
-      <input type="text" className="form-control" value={task} onChange={(e) => setTask(e.target.value)} onKeyDown={addToList} placeholder='Enter a task you want to remember'/>
+      <input type="text" className="form-control" value={task} onChange={(e) => setTask(e.target.value)} onKeyDown={addToList} 
+      placeholder={logged ? "Enter a task you want to remember" : "Calm down. Introduce yourself before"} disabled={!logged}/>
     </div>
 
     <div className="mt-3 list-container">
     <div className="list-header d-flex justify-content-center px-4 pb-1 pt-1 border-bottom border-primary">
-    <h6 id="list-reminder">Please Future Me, don't forget about...</h6>
+    <h6 id="list-reminder">{logged ? <>Remember, <span id='known'>{user}</span>, you have to...</>: <>We don't know yet, <span id='anon'>Anonymous</span></>}</h6>
     </div>
     <ul className="list-group">
       {list.map((task) =>
