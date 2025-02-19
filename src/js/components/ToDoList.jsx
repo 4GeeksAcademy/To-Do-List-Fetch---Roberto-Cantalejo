@@ -88,7 +88,7 @@ return (
         <span className="input-group-text">Add something to do</span>
       </div>
       <input type="text" className="form-control" value={task} onChange={(e) => setTask(e.target.value)} onKeyDown={addToList} 
-      placeholder={logged ? "Enter a task you want to remember" : "Calm down. Introduce yourself before"} disabled={!logged}/>
+      placeholder={logged ? "Enter a task you want to remember" : "Calm down. Introduce yourself first"} disabled={!logged}/>
     </div>
 
     <div className="mt-3 list-container">
